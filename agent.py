@@ -62,7 +62,6 @@ class Agent:
         self.copy_steps = self.parameters['copy_network_steps']
         self.train_report_interval = self.parameters['train_report_interval']
         self.num_game_steps_per_train = self.parameters['num_game_steps_per_train']
-        self.use_per = self.parameters['use_per']
         self.num_train_steps_save_video = self.parameters['num_train_steps_save_video']
 
         self.eps_min = self.parameters['eps_min']
@@ -246,14 +245,7 @@ class Agent:
         log('train finished in {:0.1f} seconds / {:0.1f} mins / {:0.1f} hours'.format(elapsed, elapsed / 60, elapsed / 60 / 60))
         
     def _add_memories(self, state, action, reward, cont, next_state):
-        if self.use_per:
-            self._add_priority_memory(state, action, reward, cont, next_state)
-        else:
-            self.replay_sampler.append(state=state,
-                                       action=action,
-                                       reward=reward,
-                                       next_state=next_state,
-                                       cont=cont)
+        self._add_priority_memory(state, action, reward, cont, next_state)
 
     def _add_priority_memory(self, state, action, reward, cont, next_state):
         self.per_memory_batch.append(state=state,
@@ -284,26 +276,20 @@ class Agent:
             self.per_memory_batch.clear()
 
     def _sample_memories(self):
-        if self.use_per:
-            if self.step % self.per_calculate_steps == 0 or self.last_max_weight is None:
-                self.last_avg_loss = self.replay_sampler.get_average()
-                self.last_min_loss = max(self.replay_sampler.get_min(), self.MIN_ERROR_PRIORITY)
-                self.last_max_loss = min(self.replay_sampler.get_max(), self.MAX_ERROR_PRIORITY)
-                self.last_max_weight = pow(self.batch_size * (self.last_min_loss / self.replay_sampler.total), -self.per_b)
+        if self.step % self.per_calculate_steps == 0 or self.last_max_weight is None:
+            self.last_avg_loss = self.replay_sampler.get_average()
+            self.last_min_loss = max(self.replay_sampler.get_min(), self.MIN_ERROR_PRIORITY)
+            self.last_max_loss = min(self.replay_sampler.get_max(), self.MAX_ERROR_PRIORITY)
+            self.last_max_weight = pow(self.batch_size * (self.last_min_loss / self.replay_sampler.total), -self.per_b)
 
-            # sample memories from sum tree
-            self.replay_sampler.sample_memories(self.train_batch,
-                                                batch_size=self.batch_size,
-                                                tree_idxes=self.tree_idxes,
-                                                priorities=self.priorities)
+        # sample memories from sum tree
+        self.replay_sampler.sample_memories(self.train_batch,
+                                            batch_size=self.batch_size,
+                                            tree_idxes=self.tree_idxes,
+                                            priorities=self.priorities)
 
-            sampling_probs = self.priorities / self.replay_sampler.total
-            self.is_weights = np.power(self.batch_size * sampling_probs, -self.per_b) / self.last_max_weight 
-        else:
-            # sample randomly from each range
-            self.replay_sampler.sample_memories(self.train_batch,
-                                                batch_size=self.batch_size)
-            self.is_weights = None
+        sampling_probs = self.priorities / self.replay_sampler.total
+        self.is_weights = np.power(self.batch_size * sampling_probs, -self.per_b) / self.last_max_weight 
 
     def _make_priority(self, losses):
         return np.power(np.minimum(losses + self.MIN_ERROR_PRIORITY, 
