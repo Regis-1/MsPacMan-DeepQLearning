@@ -1,19 +1,11 @@
-import os
-import importlib
-import gym
-import time
 import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
 
-from collections import deque
-import numpy as np
+import os
 
-from PIL import Image, ImageDraw
 from others import log
 
-from memory import ReplayMemory, ReplayMemoryDisk, ReplaySamplerPriority
-
-class Model:
+class PlayModel:
     
     INPUT_HEIGHT = 86
     INPUT_WIDTH = 80
@@ -28,141 +20,19 @@ class Model:
         self.save_model = False
         
         self.num_outputs = self.parameters['action_space']
-        self.discount_rate = self.parameters['discount_rate']
         
     def __enter__(self):
         log('creating new session load_model:', self.load_model, 'save_model:', self.save_model)
 
         tf.compat.v1.reset_default_graph()
 
-        if self.init_model:
-            self._make_inputs()
-            self._make_network()
-            self._make_train()
+        self._make_inputs()
+        self._make_network()
+        #self._make_train() #REVISION
 
         self._init_tf()
 
         return self
-
-    def _init_tf(self):
-        # make saver
-        self.saver = tf.compat.v1.train.Saver()
-
-        # set tensorflow to NOT use all of GPU memory
-        config = tf.compat.v1.ConfigProto()
-        config.gpu_options.allow_growth = True
-
-        # create actual tf session
-        self._sess = tf.compat.v1.Session(config=config)
-        self._sess.as_default()
-        self._sess.__enter__()
-
-        loaded = False
-        if self.load_model:
-            loaded = self.restore(self.parameters['save_path_prefix'])
-
-        if not loaded and not self.init_model:
-            raise Exception('cannot load existing model')
-
-        if not loaded:
-            self._sess.run(tf.compat.v1.global_variables_initializer())
-
-        tf.compat.v1.get_default_graph().finalize()
-    
-    def get_training_step(self):
-        return self.training_step.eval()
-        
-    def predict(self, X_states, use_target=False):
-        if use_target:
-            q_values = self.target_q_values
-        else:
-            q_values = self.online_q_values
-
-        values = self.run([q_values],
-                          feed_dict={self.X_state: X_states})
-
-        return values[0]
-    
-    def get_action(self, X_states, use_target=False):
-        values = self.predict(X_states, use_target=use_target)
-
-        return np.argmax(values, axis=1)
-
-    def train(self, X_states, X_actions, rewards, continues, next_states, is_weights=None):
-        target_q_values = self._get_target_q_values(rewards, continues, next_states)
-
-        feed_dict = {
-            self.X_state: X_states,
-            self.X_action: X_actions,
-            self.y: target_q_values,
-            self.is_weights: is_weights
-        }
-
-        step, _, losses, loss = self.run([self.training_step,
-                                          self.training_op,
-                                          self.losses,
-                                          self.loss],
-                                          feed_dict=feed_dict)
-        return step, losses, loss
-
-    def get_losses(self, X_states, actions, rewards, continues, next_states):
-        target_q_values = self._get_target_q_values(rewards, continues, next_states)
-
-
-        return self.run([self.losses],
-                        feed_dict={
-                            self.X_state: X_states,
-                            self.X_action: actions,
-                            self.y: target_q_values
-                        })[0]
-
-    def _get_target_q_values(self, rewards, continues, next_states):
-        max_q_values = self.run([self.max_q_values],
-                                feed_dict={self.X_state: next_states})[0]
-
-        return rewards + continues * self.discount_rate * max_q_values
-
-    def copy_network(self):
-        self.copy_online_to_target.run()        
-
-
-    def get_training_step(self):
-        return self.training_step.eval()
-        
-
-    def set_game_count(self, count):
-        self.game_count.load(count)
-
-
-    def get_game_count(self):
-        return self.run([self.game_count])[0]
-
-    def __exit__(self, ty, value, tb):
-        if self.save_model:
-            self.save(self.conf['save_path_prefix'])
-
-        self._sess.__exit__(ty, value, tb)                    
-        self._sess.close()
-        self._sess = None
-
-    def run(self, *args, **kwargs):
-        return self._sess.run(*args, **kwargs)
-        
-    def save(self, save_path_prefix):
-        log('saving model: ', save_path_prefix)
-        self.saver.save(self._sess, save_path_prefix)
-        log('saved model')
-
-    def restore(self, save_path_prefix):
-        if not os.path.exists(save_path_prefix + '.index'):
-            log('  model does not exist:', save_path_prefix)
-            return False
-
-        log('  restoring model: ', save_path_prefix)
-        self.saver.restore(self._sess, save_path_prefix)
-        log('  restored model')
-
-        return True
         
     def _make_inputs(self):
         self.X_action = tf.compat.v1.placeholder(tf.uint8, shape=[None], name='action')
@@ -208,7 +78,6 @@ class Model:
 
         # make convolutional network 
         conv_num_maps = [32, 64, 64]
-        # conv_kernel_sizes = [8, 4, 3]
         conv_kernel_sizes = [8, 4, 4]
         conv_strides = [4, 2, 1]
         conv_paddings = ['same'] * 3
@@ -285,3 +154,53 @@ class Model:
 
             self.training_op = optimizer.minimize(self.loss, 
                                                   global_step=self.training_step)
+    
+    def _init_tf(self):
+        # make saver
+        self.saver = tf.compat.v1.train.Saver()
+
+        # set tensorflow to NOT use all of GPU memory
+        config = tf.compat.v1.ConfigProto()
+        config.gpu_options.allow_growth = True
+
+        # create actual tf session
+        self._sess = tf.compat.v1.Session(config=config)
+        self._sess.as_default()
+        self._sess.__enter__()
+
+        loaded = False
+        if self.load_model:
+            loaded = self.restore(self.parameters['save_path_prefix'])
+
+        if not loaded and not self.init_model:
+            raise Exception('cannot load existing model')
+
+        if not loaded:
+            self._sess.run(tf.compat.v1.global_variables_initializer())
+
+        tf.compat.v1.get_default_graph().finalize()
+        
+    def restore(self, save_path_prefix):
+        if not os.path.exists(save_path_prefix + '.index'):
+            log('  model does not exist:', save_path_prefix)
+            return False
+
+        log('  restoring model: ', save_path_prefix)
+        self.saver.restore(self._sess, save_path_prefix)
+        log('  restored model')
+
+        return True
+    
+    def predict(self, X_states, use_target=False):
+        if use_target:
+            q_values = self.target_q_values
+        else:
+            q_values = self.online_q_values
+
+        values = self.run([q_values],
+                          feed_dict={self.X_state: X_states})
+
+        return values[0]
+    
+    def run(self, *args, **kwargs):
+        return self._sess.run(*args, **kwargs)

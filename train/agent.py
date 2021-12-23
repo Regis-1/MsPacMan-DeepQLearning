@@ -305,7 +305,7 @@ class Agent:
             # optimal action
             return np.argmax(q_values)
 
-    def open(self):
+    def __enter__(self):
         self.model.__enter__()
 
         if self.is_training:
@@ -313,19 +313,10 @@ class Agent:
         else:
             self._play_init()
 
-
-    def close(self, ty=None, value=None, tb=None):
+    def __exit__(self, ty, value, tb):
         if self.is_training:
             self._train_finish()
         else:
             self._play_finish()
 
         self.model.__exit__(ty, value, tb)
-
-
-    def __enter__(self):
-        return self.open()
-
-
-    def __exit__(self, ty, value, tb):
-        self.close(ty, value, tb)

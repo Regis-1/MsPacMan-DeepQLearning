@@ -9,9 +9,6 @@ from manager import Manager
 
 from others import init_logging
 
-train = True
-
-#data/mspacman_1
 parameters = {
         'replay_max_memory_length': 1000000,
         'action_space': 9,
@@ -21,7 +18,6 @@ parameters = {
         'display': False,
         'save_video': False,
         'num_frames_per_state': 4,
-        'action_space': 9,
         'save_path_prefix': 'data/mspacman_3\\MsPacmanEnvironment',
         #agent
         'save_dir': 'data/mspacman_3',
@@ -54,10 +50,9 @@ parameters = {
         # learning rate for adam / momentum optmizer
         'learning_rate': 0.00025,
         # q value discount rate between states
-        'discount_rate': 0.99
+        'discount_rate': 0.99,
+        'is_training': True
     }
-
-parameters['is_training'] = train
 
 env = Environment()
 agent = Agent(parameters)
@@ -65,7 +60,4 @@ init_logging(save_path='data/mspacman_3\\MsPacmanEnvironment')
 
 with agent:
     manager = Manager(parameters, env, agent)
-    if train:
-        manager.run()
-    else:
-        manager.play(fps=25, zoom=2)
+    manager.run()
