@@ -14,12 +14,6 @@ from others import log
 from memory import ReplayMemory, ReplayMemoryDisk, ReplaySamplerPriority
 
 class Model:
-    DEFAULT_OPTIONS = {
-        # learning rate for adam / momentum optmizer
-        'learning_rate': 0.00025,
-        # q value discount rate between states
-        'discount_rate': 0.99
-    }
     
     INPUT_HEIGHT = 86
     INPUT_WIDTH = 80
@@ -32,8 +26,6 @@ class Model:
         self.init_model = True
         self.load_model = True
         self.save_model = False
-        
-        self.parameters.update(self.DEFAULT_OPTIONS)
         
         self.num_outputs = self.parameters['action_space']
         self.discount_rate = self.parameters['discount_rate']

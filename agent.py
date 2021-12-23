@@ -16,43 +16,15 @@ from memory import ReplayMemory, ReplayMemoryDisk, ReplaySamplerPriority
 from others import init_logging, log
 
 class Agent:
-    parameters = {
-        'is_training': True,
-        'save_dir': './data',
-        'game_id': None,
-        'eps_min': 0.1,
-        'eps_max': 1.0,
-        'eps_decay_steps': 2000000,
-        'discount_rate': 0.99,
-        'save_model_steps': 10000,
-        'copy_network_steps': 10000,
-        'batch_size': 32,
-        'model_save_prefix': None,
-        'replay_max_memory_length': 300000,
-        'replay_cache_size': 300000,
-        'max_num_training_steps': 2000000,
-        'num_game_frames_before_training': 10000,
-        'num_game_steps_per_train': 4,
-        'num_train_steps_save_video': None,
-        'train_report_interval': 100,
-        'use_episodes': True,
-        'use_log': True,
-        'frame_skip': 1,
-        'max_game_length': 50000,
-        'tf_log_level': 3,
-        'per_a': 0.6,
-        'per_b_start': 0.4,
-        'per_b_end': 1,
-        'per_anneal_steps': 2000000,
-        'per_calculate_steps': 5000 }
         
     MAX_MEMORY_BATCH_SIZE = 128
     MIN_ERROR_PRIORITY = 0.01
     MAX_ERROR_PRIORITY = 1.0
     
     def __init__(self, params):
+        self.parameters = params
         os.environ['TF_CPP_MIN_LOG_LEVEL'] = str(self.parameters['tf_log_level']) #reduce log out for tensorflow
-        self.parameters.update(params)
+
         self.model = Model(self.parameters)
         self.max_num_training_steps = self.parameters['max_num_training_steps']
         self.replay_max_memory_length = self.parameters['replay_max_memory_length']
