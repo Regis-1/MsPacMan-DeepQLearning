@@ -17,34 +17,22 @@ class PlayModel:
         self.parameters = parameters
         self.init_model = True
         self.load_model = True
-        self.save_model = False
         
         self.num_outputs = self.parameters['action_space']
         
     def __enter__(self):
-        log('creating new session load_model:', self.load_model, 'save_model:', self.save_model)
+        log('creating new session load_model:', self.load_model)
 
         tf.compat.v1.reset_default_graph()
 
         self._make_inputs()
         self._make_network()
-        #self._make_train() #REVISION
 
         self._init_tf()
 
         return self
         
     def _make_inputs(self):
-        self.X_action = tf.compat.v1.placeholder(tf.uint8, shape=[None], name='action')
-
-        # target Q
-        self.y = tf.compat.v1.placeholder(tf.float32, shape=[None], name='y')
-
-        self.is_weights = tf.compat.v1.placeholder(tf.float32, [None], name='is_weights')
-
-        # save how many games we've played
-        self.game_count = tf.Variable(0, trainable=False, name='game_count')
-
         # regular image input
         self.X_state = tf.compat.v1.placeholder(tf.uint8, shape=[None, 
                                                        self.INPUT_HEIGHT,
@@ -133,27 +121,6 @@ class PlayModel:
             var_dict[var.name[len(scope.name):]] = var
 
         return outputs, actions, var_dict
-
-
-
-    def _make_train(self):
-        with tf.compat.v1.variable_scope("train"):
-            self.online_max_q_values = tf.reduce_sum(input_tensor=self.online_q_values * tf.one_hot(self.X_action, self.num_outputs, dtype=tf.float32),
-                                          axis=1)
-            self.abs_losses = tf.abs(self.y - self.online_max_q_values,
-                                     name='abs_losses')
-
-            self.loss = tf.reduce_mean(input_tensor=self.is_weights * tf.math.squared_difference(self.y, self.online_max_q_values))
-            self.losses = self.abs_losses
-
-            self.training_step = tf.Variable(0, 
-                                    trainable=False, 
-                                    name='step')
-
-            optimizer = tf.compat.v1.train.AdamOptimizer(self.parameters['learning_rate'])
-
-            self.training_op = optimizer.minimize(self.loss, 
-                                                  global_step=self.training_step)
     
     def _init_tf(self):
         # make saver

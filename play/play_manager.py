@@ -23,28 +23,6 @@ def display_arr(screen, arr, video_size, transpose):
 
 class PlayManager:
 
-    RESET_GAME_STATE = {
-        'game_start_time': time.time(),
-        'game_done': False,
-        'episode_done': False,
-        'total_max_q': 0,
-        'iteration': 0,
-        'game_length': 0,
-        'episode_length': 0,
-        'score': 0,
-        'observation': None,
-        'old_state': None,
-        'state': None,
-        'action': 0,
-        'reward': None,
-        'cont': 1,
-        'info': None,
-        'num_lives': None,
-        'frames_render': [],
-        'infos_render': [],
-    }   
-
-
     def __init__(self, parameters, env, agent):
         self.env = env
         self.agent = agent
