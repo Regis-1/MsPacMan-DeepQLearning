@@ -10,7 +10,6 @@ from manager import Manager
 from others import init_logging
 
 parameters = {
-        'replay_max_memory_length': 1000000,
         'action_space': 9,
         'interval': 60,
         'use_epsilon': False,
@@ -29,7 +28,7 @@ parameters = {
         'copy_network_steps': 10000,
         'batch_size': 32,
         'model_save_prefix': 'data/mspacman_3\MsPacmanEnvironment',
-        'replay_max_memory_length': 300000,
+        'replay_max_memory_length': 1_000_000,
         'replay_cache_size': 300000,
         'max_num_training_steps': 6_000_000,
         'num_game_frames_before_training': 10000,
@@ -47,9 +46,7 @@ parameters = {
         'per_anneal_steps': 2000000,
         'per_calculate_steps': 5000,
         #model
-        # learning rate for adam / momentum optmizer
         'learning_rate': 0.00025,
-        # q value discount rate between states
         'discount_rate': 0.99,
         'is_training': True
     }

@@ -88,28 +88,13 @@ class PlayModel:
 
             input_layer = tf.compat.v1.layers.flatten(last)
 
-            # action output
             last = tf.compat.v1.layers.dense(input_layer,
                                    num_hidden,
                                    activation=tf.nn.relu,
                                    kernel_initializer=hidden_initializer)
-            advantage = tf.compat.v1.layers.dense(last, 
-                                        self.num_outputs,
-                                        kernel_initializer=hidden_initializer)
-
-            # value output
-            last = tf.compat.v1.layers.dense(input_layer,
-                                   num_hidden,
-                                   activation=tf.nn.relu,
-                                   kernel_initializer=hidden_initializer)
-            value = tf.compat.v1.layers.dense(last, 
-                                    1,
-                                    kernel_initializer=hidden_initializer)
-
-            # combine
-            outputs = value + tf.subtract(advantage, tf.reduce_mean(input_tensor=advantage, 
-                                                                    axis=1, 
-                                                                    keepdims=True))
+            outputs = tf.compat.v1.layers.dense(last, 
+                                      self.num_outputs,
+                                      kernel_initializer=hidden_initializer)
 
             actions = tf.argmax(input=outputs, axis=1)
 
