@@ -4,7 +4,7 @@ from play_env import PlayEnvironment
 
 parameters = {
         'action_space': 9,
-        'save_path_prefix': 'data/mspacman_4\\MsPacmanEnvironment',
+        'save_path_prefix': 'data/mspacman\\MsPacmanEnvironment',
         'tf_log_level': 3,
     }
 
