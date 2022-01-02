@@ -1,0 +1,2 @@
+model_checkpoint_path: "rl.game_environment.MsPacmanEnvironment"
+all_model_checkpoint_paths: "rl.game_environment.MsPacmanEnvironment"

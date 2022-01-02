@@ -1,0 +1,187 @@
+2021-12-19 13:39:26 [INFO] creating new session load_model: True save_model: False
+2021-12-19 13:39:27 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 13:39:27 [INFO]   restored model
+2021-12-19 13:39:31 [INFO] [play] game 1 len: 927 score: 3040.0/3040.0/3040.0/3040.0 fr: 161.1
+2021-12-19 14:05:46 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:05:47 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:05:47 [INFO]   restored model
+2021-12-19 14:06:18 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:06:19 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:06:19 [INFO]   restored model
+2021-12-19 14:06:34 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:06:35 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:06:35 [INFO]   restored model
+2021-12-19 14:08:00 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:08:01 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:08:01 [INFO]   restored model
+2021-12-19 14:08:36 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:08:37 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:08:37 [INFO]   restored model
+2021-12-19 14:09:17 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:09:18 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:09:18 [INFO]   restored model
+2021-12-19 14:10:37 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:10:38 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:10:38 [INFO]   restored model
+2021-12-19 14:10:49 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:10:50 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:10:50 [INFO]   restored model
+2021-12-19 14:11:34 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:11:35 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:11:35 [INFO]   restored model
+2021-12-19 14:12:20 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:12:21 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:12:21 [INFO]   restored model
+2021-12-19 14:12:40 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:12:41 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:12:41 [INFO]   restored model
+2021-12-19 14:13:34 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:13:34 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:13:35 [INFO]   restored model
+2021-12-19 14:13:57 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:13:58 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:13:58 [INFO]   restored model
+2021-12-19 14:19:25 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:19:26 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:19:26 [INFO]   restored model
+2021-12-19 14:20:14 [INFO] creating new session load_model: True save_model: False
+2021-12-19 14:20:15 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 14:20:15 [INFO]   restored model
+2021-12-19 15:49:47 [INFO] creating new session load_model: True save_model: False
+2021-12-19 15:49:48 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 15:49:48 [INFO]   restored model
+2021-12-19 15:51:42 [INFO] creating new session load_model: True save_model: False
+2021-12-19 15:51:43 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 15:51:44 [INFO]   restored model
+2021-12-19 15:53:43 [INFO] creating new session load_model: True save_model: False
+2021-12-19 15:53:44 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 15:53:44 [INFO]   restored model
+2021-12-19 16:03:04 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:03:05 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:03:05 [INFO]   restored model
+2021-12-19 16:03:20 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:03:21 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:03:21 [INFO]   restored model
+2021-12-19 16:04:32 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:04:33 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:04:33 [INFO]   restored model
+2021-12-19 16:05:06 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:05:07 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:05:07 [INFO]   restored model
+2021-12-19 16:05:51 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:05:52 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:05:52 [INFO]   restored model
+2021-12-19 16:06:20 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:06:21 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:06:21 [INFO]   restored model
+2021-12-19 16:15:08 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:15:09 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:15:09 [INFO]   restored model
+2021-12-19 16:16:32 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:16:33 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:16:33 [INFO]   restored model
+2021-12-19 16:36:53 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:36:53 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:36:54 [INFO]   restored model
+2021-12-19 16:37:58 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:37:59 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:37:59 [INFO]   restored model
+2021-12-19 16:38:58 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:38:59 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:38:59 [INFO]   restored model
+2021-12-19 16:39:31 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:39:32 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:39:32 [INFO]   restored model
+2021-12-19 16:40:06 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:40:07 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:40:07 [INFO]   restored model
+2021-12-19 16:45:45 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:45:46 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:45:46 [INFO]   restored model
+2021-12-19 16:46:05 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:46:06 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:46:06 [INFO]   restored model
+2021-12-19 16:53:41 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:53:42 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:53:42 [INFO]   restored model
+2021-12-19 16:55:56 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:55:57 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:55:57 [INFO]   restored model
+2021-12-19 16:56:11 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:56:12 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:56:12 [INFO]   restored model
+2021-12-19 16:57:35 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:57:36 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:57:36 [INFO]   restored model
+2021-12-19 16:57:54 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:57:55 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:57:55 [INFO]   restored model
+2021-12-19 16:58:38 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:58:39 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:58:39 [INFO]   restored model
+2021-12-19 16:58:57 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:58:58 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:58:58 [INFO]   restored model
+2021-12-19 16:59:22 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:59:23 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:59:23 [INFO]   restored model
+2021-12-19 16:59:51 [INFO] creating new session load_model: True save_model: False
+2021-12-19 16:59:52 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 16:59:52 [INFO]   restored model
+2021-12-19 17:00:10 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:00:11 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:00:11 [INFO]   restored model
+2021-12-19 17:01:14 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:01:15 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:01:15 [INFO]   restored model
+2021-12-19 17:01:36 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:01:37 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:01:37 [INFO]   restored model
+2021-12-19 17:01:45 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:01:45 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:01:46 [INFO]   restored model
+2021-12-19 17:01:55 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:01:55 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:01:56 [INFO]   restored model
+2021-12-19 17:02:09 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:02:10 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:02:10 [INFO]   restored model
+2021-12-19 17:03:18 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:03:18 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:03:19 [INFO]   restored model
+2021-12-19 17:03:39 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:03:40 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:03:40 [INFO]   restored model
+2021-12-19 17:03:52 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:03:53 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:03:53 [INFO]   restored model
+2021-12-19 17:07:46 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:07:47 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:07:47 [INFO]   restored model
+2021-12-19 17:11:50 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:11:51 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:11:51 [INFO]   restored model
+2021-12-19 17:14:35 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:14:36 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:14:36 [INFO]   restored model
+2021-12-19 17:16:23 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:16:24 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:16:24 [INFO]   restored model
+2021-12-19 17:33:09 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:33:10 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:33:10 [INFO]   restored model
+2021-12-19 17:35:27 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:35:28 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:35:29 [INFO]   restored model
+2021-12-19 17:36:19 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:36:20 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:36:20 [INFO]   restored model
+2021-12-19 17:37:15 [INFO] creating new session load_model: True save_model: False
+2021-12-19 17:37:16 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-19 17:37:16 [INFO]   restored model
+2021-12-22 01:00:19 [INFO] creating new session load_model: True save_model: False
+2021-12-22 01:00:21 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-22 01:00:21 [INFO]   restored model
+2021-12-22 01:04:07 [INFO] creating new session load_model: True save_model: False
+2021-12-22 01:04:08 [INFO]   restoring model:  data/mspacman_1\rl.game_environment.MsPacmanEnvironment
+2021-12-22 01:04:08 [INFO]   restored model
